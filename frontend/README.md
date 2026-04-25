@@ -1,16 +1,20 @@
-# React + Vite
+# Sentiment Analyzer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full stack AI web app that analyzes the sentiment of any text.
 
-Currently, two official plugins are available:
+## Tech Stack
+- Frontend: React + Vite (deployed on Vercel)
+- Backend: FastAPI + Python (deployed on Render)
+- AI: Groq API with LLaMA 3.1 8B
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
+- Detects positive, negative, or neutral sentiment
+- Real time AI explanation
+- Error handling and loading states
+- Free for anyone to use
 
-## React Compiler
+## Live Demo
+https://sentiment-analyzer-phi.vercel.app
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Architecture
+User → React Frontend → FastAPI Backend → Groq AI → Response
