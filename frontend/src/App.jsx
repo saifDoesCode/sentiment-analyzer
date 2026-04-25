@@ -17,7 +17,7 @@ function App() {
     setLoading(true)
     setResult(null)
 
-    const response = await fetch("http://localhost:8000/analyze", {
+    const response = await fetch("https://sentiment-analyzer-7s9v.onrender.com/analyze", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: text })
