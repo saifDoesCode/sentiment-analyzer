@@ -30,7 +30,10 @@ function App() {
 
   return (
     <div className="card">
-      <h1>Sentiment Analyzer</h1>
+      <h1>
+        <span className="title-sentiment">Sentiment </span>
+        <span className="title-analyzer">Analyzer.</span>
+      </h1>
       <p>Paste any text below and AI will analyze the sentiment</p>
       <textarea 
         placeholder="Type or paste your text here..."
@@ -57,6 +60,7 @@ function App() {
         </div>
       )}
 
+      <button className="btn-system-design">View System Design</button>
     </div>
   )
 }

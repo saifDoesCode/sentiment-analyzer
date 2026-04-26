@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,110 +7,155 @@
 }
 
 body {
-  background-color: #f0f2f5;
-  font-family: sans-serif;
+  background-color: #ffffff;
+  font-family: 'Intel One Mono', monospace;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
 }
 
 .card {
-  margin: auto;
-  background-color: white;
-  padding: 40px;
-  text-align: center;
-  border-radius: 16px;
-  width: 100%;
-  max-width: 600px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 80px;
+  max-width: 860px;
 }
 
 h1 {
-  font-size: 28px;
-  color: #1a1a2e;
-  margin-bottom: 8px;
+  font-size: 72px;
+  font-weight: 600;
+  margin-bottom: 36px;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.title-sentiment {
+  color: #2ba8c5;
+}
+
+.title-analyzer {
+  color: #0d3040;
 }
 
 p {
-  color: #666;
-  margin-bottom: 24px;
-  font-size: 15px;
+  color: #888;
+  margin-bottom: 20px;
+  font-size: 14px;
 }
 
 textarea {
+  display: block;
   width: 100%;
-  height: 150px;
-  padding: 16px;
-  border: 2px solid #e0e0e0;
-  border-radius: 10px;
-  font-size: 15px;
+  max-width: 580px;
+  height: 180px;
+  padding: 20px;
+  border: 1.5px solid #c8d0d8;
+  border-radius: 16px;
+  font-size: 14px;
   resize: vertical;
   outline: none;
-  font-family: sans-serif;
-  margin-bottom: 16px;
+  font-family: 'Intel One Mono', monospace;
+  margin-bottom: 20px;
+  background: #ffffff;
+  color: #0d3040;
+}
+
+textarea::placeholder {
+  color: #b0b8c0;
 }
 
 textarea:focus {
-  border-color: #6c63ff;
+  border-color: #2ba8c5;
 }
 
 button {
-  width: 100%;
-  padding: 14px;
-  background-color: #6c63ff;
-  color: white;
+  display: inline-block;
+  width: auto;
+  padding: 12px 28px;
+  background-color: #2ba8c5;
+  color: #ffffff;
   border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 600;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
+  font-family: 'Intel One Mono', monospace;
   margin-bottom: 24px;
+  transition: background-color 0.2s;
 }
 
 button:hover {
-  background-color: #5a52d5;
+  background-color: #239ab5;
+}
+
+.btn-system-design {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  padding: 14px 26px;
+  background-color: #2ba8c5;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Intel One Mono', monospace;
+  margin-bottom: 0;
+  z-index: 100;
+  transition: background-color 0.2s;
+}
+
+.btn-system-design:hover {
+  background-color: #239ab5;
 }
 
 .result {
-  background-color: #f8f7ff;
-  border-left: 4px solid #6c63ff;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 20px;
-  margin-top: 16px;
+  margin-top: 8px;
+  max-width: 580px;
+}
+
+.result:has(.positive) {
+  background-color: #e6f9f0;
+}
+
+.result:has(.negative) {
+  background-color: #fde8e8;
+}
+
+.result:has(.neutral) {
+  background-color: #f0f0f0;
 }
 
 .result h2 {
-  font-size: 18px;
-  color: #1a1a2e;
-  margin-bottom: 8px;
+  font-size: 16px;
+  color: #0d3040;
+  margin-bottom: 10px;
 }
 
 .result p {
   color: #444;
   margin-bottom: 4px;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .error {
   color: #e74c3c;
-  font-size: 14px;
+  font-size: 13px;
   margin-bottom: 16px;
 }
 
 .loading {
-  color: #6c63ff;
-  font-size: 14px;
+  color: #2ba8c5;
+  font-size: 13px;
   margin-bottom: 16px;
 }
 
 .sentiment-badge {
   display: inline-block;
-  padding: 6px 16px;
+  padding: 5px 16px;
   border-radius: 20px;
-  font-weight: 600;
-  font-size: 14px;
+  border-color: #444;
+  font-weight: 900;
+  font-size: 13px;
   text-transform: capitalize;
   margin-bottom: 12px;
 }
@@ -120,10 +167,42 @@ button:hover {
 
 .negative {
   background-color: #fde8e8;
-  color: #e74c3c;
+  color: #000000;
 }
 
 .neutral {
   background-color: #f0f0f0;
   color: #888;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 36px 24px;
+  }
+
+  h1 {
+    font-size: 40px;
+    margin-bottom: 24px;
+  }
+
+  textarea {
+    max-width: 100%;
+  }
+
+  .result {
+    max-width: 100%;
+  }
+
+  .btn-system-design {
+    bottom: 16px;
+    right: 16px;
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 30px;
+  }
 }
