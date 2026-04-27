@@ -6,6 +6,7 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState(null)
   const [error, setError] = useState(null)
+  const [isOpen, setIsOpen] = useState(false)
 
   const handleAnalyze = async () => {
     if (text.trim() === ""){
@@ -41,6 +42,7 @@ function App() {
         onChange={(e) => setText(e.target.value)}
       />
       <button onClick={handleAnalyze}>Analyze</button>
+      <button className="btn-system-design" onClick={() => setIsOpen(true)}>View System Design</button>
  
       {error && (
         <p className="error">{error}</p>
@@ -60,7 +62,51 @@ function App() {
         </div>
       )}
 
-      <button className="btn-system-design">View System Design</button>
+      {isOpen && (
+        <div className='openpopup'>
+          <div className='popupcontent'>
+            <h2>System Design</h2>
+
+            <div className="diagram">
+
+              <div className="diagram-row">
+                <div className="diagram-box gray">User browser</div>
+              </div>
+
+              <div className="diagram-arrow">↓ HTTPS request ↓</div>
+
+              <div className="diagram-row">
+                <div className="diagram-box purple">
+                  <strong>Vercel — Frontend</strong>
+                  <span>React · App.jsx · App.css</span>
+                </div>
+              </div>
+
+              <div className="diagram-arrow">↓ POST /analyze ↓</div>
+
+              <div className="diagram-row">
+                <div className="diagram-box teal">
+                  <strong>Render — Backend</strong>
+                  <span>FastAPI · main.py · sentiment.py</span>
+                </div>
+              </div>
+
+              <div className="diagram-arrow">↓ Groq API call ↓</div>
+
+              <div className="diagram-row">
+                <div className="diagram-box amber">
+                  <strong>Groq AI</strong>
+                  <span>LLaMA 3.1 · returns JSON</span>
+                </div>
+              </div>
+
+            </div>
+
+            <button onClick={() => setIsOpen(false)}>Close</button>
+          </div>
+        </div>
+      )}
+
     </div>
   )
 }
