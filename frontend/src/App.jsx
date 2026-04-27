@@ -7,6 +7,8 @@ function App() {
   const [result, setResult] = useState(null)
   const [error, setError] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
+  const [isDeveloperOpen, setIsDeveloperOpen] = useState(false)
+
 
   const handleAnalyze = async () => {
     if (text.trim() === ""){
@@ -43,6 +45,7 @@ function App() {
       />
       <button onClick={handleAnalyze}>Analyze</button>
       <button className="btn-system-design" onClick={() => setIsOpen(true)}>View System Design</button>
+      <button className='btn-developer-info' onClick={() => setIsDeveloperOpen(true)}>Developer Info</button>
  
       {error && (
         <p className="error">{error}</p>
@@ -59,6 +62,34 @@ function App() {
           <h2>Result</h2>
           <p className={`sentiment-badge ${result.sentiment}`}>{result.sentiment}</p>
           <p>{result.explanation}</p>
+        </div>
+      )}
+
+      {isDeveloperOpen && (
+        <div className="openpopup">
+          <div className="popupcontent">
+            <img 
+              src="/avatar-zoomed.JPG" 
+              alt="Saif Ahmed"
+              style={{ width: "90px", height: "90px", borderRadius: "50%", objectFit: "cover", marginBottom: "16px" }}
+            />
+            <h2>Saif Ahmed</h2>
+            <p style={{ color: "#888", marginBottom: "20px", fontSize: "13px" }}>AI Engineer · Software Engineer</p>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "24px" }}>
+              <a href="mailto:saifanis03@gmail.com" style={{ color: "#2ba8c5", fontSize: "14px", textDecoration: "none" }}>
+                saifanis03@gmail.com
+              </a>
+              <a href="https://www.linkedin.com/in/saif-ahmed-6ba859257/" target="_blank" style={{ color: "#2ba8c5", fontSize: "14px", textDecoration: "none" }}>
+                LinkedIn Profile
+              </a>
+              <a href="https://github.com/saifDoesCode" target="_blank" style={{ color: "#2ba8c5", fontSize: "14px", textDecoration: "none" }}>
+                GitHub — saifDoesCode
+              </a>
+            </div>
+
+            <button onClick={() => setIsDeveloperOpen(false)}>Close</button>
+          </div>
         </div>
       )}
 
@@ -93,7 +124,7 @@ function App() {
 
               <div className="diagram-arrow">↓ Groq API call ↓</div>
 
-              <div className="diagram-row">
+              <div className="diagram-row"> 
                 <div className="diagram-box amber">
                   <strong>Groq AI</strong>
                   <span>LLaMA 3.1 · returns JSON</span>
